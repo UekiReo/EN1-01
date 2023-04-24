@@ -7,7 +7,8 @@ public class GameManagerScript : MonoBehaviour
     public GameObject playerPrehub;
     int[,] map; // レベルデザイン用の配列
     GameObject[,] field; // ゲーム管理用の配列
-    int playerIndex = -1;
+
+    //int playerIndex = -1;
 
     // Start is called before the first frame update
     void Start()
@@ -35,9 +36,9 @@ public class GameManagerScript : MonoBehaviour
                 if (map[y, x] == 1)
                 {
                     field[y,x] = Instantiate(
-                        playerPrehub,
-                        new Vector3(x, map.GetLength(0) - y, 0),
-                        Quaternion.identity
+                        　playerPrehub,
+                        　new Vector3(x, map.GetLength(0) - y, 0)
+                        　,Quaternion.identity
                         );
                 }
             }
@@ -51,8 +52,15 @@ public class GameManagerScript : MonoBehaviour
         {
             for (int x = 0; x < map.GetLength(1); x++)
             {
-                if (field[y, x] == null) { continue; }
-                if (field[y, x].tag == "Player") { return new Vector2Int(x, y); }
+                if (field[y, x] == null) 
+                { 
+                    continue; 
+                }
+
+                if (field[y, x].tag == "Player") 
+                {
+                    return new Vector2Int(x, y);
+                }
             }
         }
         return new Vector2Int(-1, -1);
@@ -102,20 +110,20 @@ public class GameManagerScript : MonoBehaviour
         return true;
     }
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.RightArrow))
-    //    {
-    //        int playerIndex = GetPlayerIndex();
-    //        MoveNumber(1, playerIndex, playerIndex + 1);
-    //        PrintArray();
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.LeftArrow))
-    //    {
-    //        int playerIndex = GetPlayerIndex();
-    //        MoveNumber(1, playerIndex, playerIndex - 1);
-    //        PrintArray();
-    //    }
-    //}
+    // Update is called once per frame
+    void Update()
+    {
+        //if (Input.GetKeyDown(KeyCode.RightArrow))
+        //{
+        //    int playerIndex = GetPlayerIndex();
+        //    MoveNumber(1, playerIndex, playerIndex + 1);
+        //    PrintArray();
+        //}
+        //if (Input.GetKeyDown(KeyCode.LeftArrow))
+        //{
+        //    int playerIndex = GetPlayerIndex();
+        //    MoveNumber(1, playerIndex, playerIndex - 1);
+        //    PrintArray();
+        //}
+    }
 }
