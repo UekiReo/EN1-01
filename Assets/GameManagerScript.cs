@@ -43,7 +43,6 @@ public class GameManagerScript : MonoBehaviour
                 }
             }
         }
-        //PrintArray();
     }
 
     Vector2Int GetPlayerIndex()
@@ -81,9 +80,6 @@ public class GameManagerScript : MonoBehaviour
 
     bool MoveNumber(int number, Vector2Int moveFrom, Vector2Int moveTo)
     {
-
-        field[moveFrom.y, moveFrom.x].transform.position = new Vector3(moveTo.x, field.GetLength(0) - moveTo.y, 0);
-
         if (moveTo.y < 0 || moveTo.y >= map.GetLength(0))
         {
             return false;
@@ -93,6 +89,19 @@ public class GameManagerScript : MonoBehaviour
         {
             return false;
         }
+
+        field[moveFrom.y, moveFrom.x].transform.position = new Vector3(moveTo.x, field.GetLength(0) - moveTo.y, 0);
+
+        // 箱のプレハブをまだ作っていないのでここの処理はコメントアウト
+        //if (map[moveTo]==2)
+        //{
+        //    int velocity = moveTo - moveFrom;
+        //    bool success = MoveNumber(2, moveTo, moveTo + velocity);
+        //    if (!success)
+        //    {
+        //        return false;
+        //    }
+        //}
 
         if (field[moveTo.y,moveTo.x] != null && field[moveTo.y,moveTo.x].tag == "Box")
         {
@@ -117,13 +126,11 @@ public class GameManagerScript : MonoBehaviour
         //{
         //    int playerIndex = GetPlayerIndex();
         //    MoveNumber(1, playerIndex, playerIndex + 1);
-        //    PrintArray();
         //}
         //if (Input.GetKeyDown(KeyCode.LeftArrow))
         //{
         //    int playerIndex = GetPlayerIndex();
         //    MoveNumber(1, playerIndex, playerIndex - 1);
-        //    PrintArray();
         //}
     }
 }
