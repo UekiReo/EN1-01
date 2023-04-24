@@ -7,6 +7,14 @@ public class GameManagerScript : MonoBehaviour
     int[] map;
     int playerIndex = -1;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        //”z—ñ
+        map = new int[] { 0, 0, 0, 1, 0, 2, 0, 0, 0 };
+        PrintArray();
+    }
+
     int GetPlayerIndex()
     {
         for (int i = 0; i < map.Length; i++)
@@ -50,14 +58,6 @@ public class GameManagerScript : MonoBehaviour
         map[moveTo] = number;
         map[moveFrom] = 0;
         return true;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //”z—ñ
-        map = new int[] { 0, 0, 0, 1, 0, 2, 0, 0, 0 };
-        PrintArray();
     }
 
     // Update is called once per frame
