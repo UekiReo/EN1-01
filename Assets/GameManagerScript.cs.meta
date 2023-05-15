@@ -4,10 +4,10 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - playerPrehub: {instanceID: 0}
-  - BoxPrehub: {instanceID: 0}
-  - goalPrehub: {instanceID: 0}
-  - ClearText: {instanceID: 0}
+  - playerPrefab: {instanceID: 0}
+  - boxPrefab: {instanceID: 0}
+  - goalPrefab: {instanceID: 0}
+  - clearText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
