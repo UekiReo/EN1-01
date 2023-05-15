@@ -51,9 +51,7 @@ public class GameManagerScript : MonoBehaviour
         {
             //どの方向へ移動するかを算出
             Vector2Int velocity = moveTo - moveFrom;
-            //プレイヤーの移動先から、さらに先へ箱を移動させる・
-            //箱の移動処理、MoveNumberメソッド内でMoveNumverメソッドを
-            //呼び、処理が再起している。移動可不可をboolで記録
+           
             bool success = MoveNumber(tag, moveTo, moveTo + velocity);
             //もし箱が移動失敗したら。プレイヤーの移動も失敗
             if (!success) { return false; }
@@ -163,38 +161,35 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       //位置の取得
+        //プレイヤーの位置の取得
         Vector2Int playerMoveFrom = GetPlayerIndex();
         Vector2Int playerMoveTo = playerMoveFrom + new Vector2Int(0, 0);
 
         //クリアしてないとき移動できる
         if (IsCleard() != true)
         {
-            //右
+            //右キーを押したとき
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 playerMoveTo = playerMoveFrom + new Vector2Int(1, 0);
                 //プレイヤーの移動
                 MoveNumber("Player", playerMoveFrom, playerMoveTo);
             }
-
-            //左
+            //左キーを押したとき
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 playerMoveTo = playerMoveFrom + new Vector2Int(-1, 0);
                 //プレイヤーの移動
                 MoveNumber("Player", playerMoveFrom, playerMoveTo);
             }
-
-            //上
+            //上キーを押したとき
             else if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 playerMoveTo = playerMoveFrom + new Vector2Int(0, -1);
                 //プレイヤーの移動
                 MoveNumber("Player", playerMoveFrom, playerMoveTo);
             }
-
-            //下
+            //下キーを押したとき
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 playerMoveTo = playerMoveFrom + new Vector2Int(0, 1);
