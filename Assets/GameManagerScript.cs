@@ -112,6 +112,8 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
 
+        Screen.SetResolution(1920, 1080, false);
+
         //”z—ñ‚Ìì¬‚Æ‰Šú‰»
         map = new int[,] {
             { 0, 0, 0, 0, 0},
