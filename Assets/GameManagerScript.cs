@@ -101,8 +101,6 @@ public class GameManagerScript : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject boxPrefab;
     public GameObject goalPrefab;
-    public GameObject particlePrefab;
-
     public GameObject clearText;
 
     //”z—ñ‚ÌéŒ¾
